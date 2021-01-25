@@ -3,8 +3,8 @@ class Obstacle {
         this.image = image;
         this.x = width;
         this.y = (Math.random() * height) / 2.5;
-        this.width = 50;
-        this.height = 50;
+        this.width = 80;
+        this.height = 80;
     }
     collision(playerInfo) {
         console.log('collision', playerInfo);
@@ -18,7 +18,6 @@ class Obstacle {
             game.player.score += 10;
             return true;
         }
-
     }
     draw() {
         this.x--;

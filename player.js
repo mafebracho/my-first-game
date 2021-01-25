@@ -1,7 +1,7 @@
 class Player {
     constructor() {
         this.score = 0;
-        this.gravity = 0.2;
+        this.gravity = 0.5;
         this.velocity = 0;
         this.width = 160;
         this.height = 200;

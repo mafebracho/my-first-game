@@ -10,15 +10,19 @@ class Game {
     }
     preload() {
         this.backgroundImages = [
-            // { src: loadImage('assets/background-0.png'), x: 0, speed: 1 },
-            { src: loadImage('assets/background-1.png'), x: 0, speed: 2 },
-            // { src: loadImage('assets/background-2.png'), x: 0, speed: 3 }
+            // { src: loadImage('assets/background-0.png'), x: 0, speed: 2 },
+            { src: loadImage('assets/background-1.png'), x: 0, speed: 3 },
+            // { src: loadImage('assets/background-2.png'), x: 0, speed: 4 }
         ];
         this.playerImage = loadImage('assets/player.png');
             
         this.coinImage = [
-            loadImage('assets/coin-1.jpg'),
+            loadImage('assets/coin-1.png'),
             loadImage('assets/coin-2.jpg')
+        ];
+        this.enemyImage = [
+            loadImage('assets/obstacle-1.gif'),
+            loadImage('assets/obstacle-1.jpg')
         ];
     }
     draw() {
@@ -26,7 +30,7 @@ class Game {
         this.background.draw();
         this.player.draw();
         
-        if (frameCount % 200 === 0) {
+        if (frameCount % 400 === 0) {
             this.obstacles.push(new Obstacle(this.coinImage[0]));
         }
         this.obstacles.forEach(function (obstacle) {
