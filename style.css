@@ -1,0 +1,38 @@
+body {
+    background-color: #0f1c37;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight: 400;
+
+    margin: 0;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+p {
+    text-align: center;
+    padding-left: 5%;
+}
+
+img {
+    width: 95%;
+}
+
+.left-column {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+    width: 25%;
+    left: 0;
+    position: absolute;
+}
+
