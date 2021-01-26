@@ -5,10 +5,10 @@
     <title>Arrival Survival</title>
     <link rel="stylesheet" href="/style.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
-    
 </head>
 
 <body>
+
     <div class="left-column">
         <img src="/assets/logo.png" alt="arrival-survival-logo">
         <p>In the year <strong>2020</strong> our friend <strong>"Vim"</strong> was sent on an expedition 
@@ -26,5 +26,12 @@
     <script src="/player.js"></script>
     <script src="/game.js"></script>
     <script src="/main.js"></script>
+
+    <!-- This snippet is supposed to trick the browser to allow autoplay but messes up my styling -->
+    <!-- <iframe src=”https://olafwempe.com/mp3/silence/silence.mp3″ type=”audio/mp3″ allow=”autoplay” id=”audio” style=”display:none”></iframe><audio autoplay><source src=”https://olafwempe.com/mp3/Septium.mp3″ type=”audio/mp3″></audio> -->
+
+    <audio autoplay id='backgroundMusic' src='assets/background-music.mp3' loop='loop'></audio>
+    <audio id='jumpingSound' src='assets/jump.mp3'></audio>
+
 </body>
 </html>

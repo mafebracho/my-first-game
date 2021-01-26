@@ -1,4 +1,6 @@
 const game = new Game();
+window.onload = function() {
+};
 
 function preload() {
     game.preload();
@@ -13,5 +15,7 @@ function draw() {
 function keyPressed () {
     if (keyCode === 32) {
         game.player.jump();
+        document.getElementById('jumpingSound').play();
+        // game.jumpSound.play();
     }
 }

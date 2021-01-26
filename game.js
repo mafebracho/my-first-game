@@ -7,6 +7,7 @@ class Game {
         this.background = new Background();
         this.obstacles = [];
         this.coins = [];
+        // this.jumpSound;
     }
 
     preload() {
@@ -14,6 +15,7 @@ class Game {
         this.preloadForest();
         this.preloadBurningForest();
         this.preloadCity();
+        // this.preloadJumpSound();
     }
 
     preloadPlayer(){
@@ -70,7 +72,7 @@ class Game {
     drawBurningForest(){
         this.background.draw(this.bunrningForestBackgroundImage);
 
-        if (frameCount % 400 === 0) {
+        if (frameCount % 300 === 0) {
             this.coins.push(new Coin(this.burningForestCoin));
             this.obstacles.push(new Obstacle(this.burningForestObstacle));
         }
