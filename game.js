@@ -7,7 +7,7 @@ class Game {
         this.background = new Background();
         this.obstacles = [];
         this.coins = [];
-        this.scoreLabel = `Score: `;
+        this.scoreLabel = '';
     }
 
     preload() {
@@ -114,7 +114,13 @@ class Game {
     }
 
     drawScore(){
-        document.querySelector('.score > h1').innerText = this.scoreLabel + this.player.score;
+        // document.querySelector('.score > h1').innerText = this.scoreLabel + this.player.score;
+        if (this.player.score > 0) {
+            document.querySelector('.score > h1').innerText = this.scoreLabel + `Score: ${this.player.score}`;
+        } else if (this.player.score < 0) {
+            document.querySelector('.score > h1').innerText = '2020 KILLED VIM :(';
+            clear();
+        }
     }
 
 }
