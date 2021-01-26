@@ -81,7 +81,7 @@ class Game {
     drawCity(){
         this.background.draw(this.cityBackgroundImage);
 
-        if (frameCount % 400 === 0) {
+        if (frameCount % 200 === 0) {
             this.coins.push(new Coin(this.cityCoin));
             this.obstacles.push(new Obstacle(this.cityObstacle));
         }

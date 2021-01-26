@@ -1,8 +1,8 @@
 class Obstacle {
     constructor(image) {
         this.image = image;
-        this.x = width / 2;
-        this.y = 550;
+        this.x = (Math.random() * width) / 2;
+        this.y = (Math.random() * height + 650) / 1.5;
         this.width = 80;
         this.height = 80;
     }
