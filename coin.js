@@ -7,7 +7,7 @@ class Coin {
         this.height = 80;
     }
     collision(playerInfo) {
-        console.log('collision', playerInfo);
+        //console.log('collision', playerInfo);
         let coinX = this.x + this.width / 2;
         let coinY = this.y + this.height / 2;
         let playerX = playerInfo.x + playerInfo.width / 2;
@@ -15,10 +15,11 @@ class Coin {
         if (dist(coinX, coinY, playerX, playerY) > 25) {
             return false;
         } else {
-            game.player.score += 10;
+            game.player.score += 5;
             return true;
         }
     }
+    
     draw() {
         this.x--;
         image(this.image, this.x, this.y, this.width, this.height);

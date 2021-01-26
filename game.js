@@ -7,7 +7,7 @@ class Game {
         this.background = new Background();
         this.obstacles = [];
         this.coins = [];
-        // this.jumpSound;
+        this.scoreLabel = `Score: `;
     }
 
     preload() {
@@ -15,7 +15,6 @@ class Game {
         this.preloadForest();
         this.preloadBurningForest();
         this.preloadCity();
-        // this.preloadJumpSound();
     }
 
     preloadPlayer(){
@@ -63,6 +62,7 @@ class Game {
         this.player.draw();
         this.drawCoins();
         this.drawObstacles();
+        this.drawScore();
     }
 
     drawForest(){
@@ -112,4 +112,9 @@ class Game {
             }
         });
     }
+
+    drawScore(){
+        document.querySelector('.score > h1').innerText = this.scoreLabel + this.player.score;
+    }
+
 }

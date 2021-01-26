@@ -3,11 +3,11 @@ class Obstacle {
         this.image = image;
         this.x = (Math.random() * width) / 2;
         this.y = (Math.random() * height + 650) / 1.5;
-        this.width = 80;
-        this.height = 80;
+        this.width = 95;
+        this.height = 95;
     }
     collision(playerInfo) {
-        console.log('collision', playerInfo);
+        //console.log('collision', playerInfo);
         let obstacleX = this.x + this.width / 2;
         let obstacleY = this.y + this.height / 2;
         let playerX = playerInfo.x + playerInfo.width / 2;
@@ -15,7 +15,7 @@ class Obstacle {
         if (dist(obstacleX, obstacleY, playerX, playerY) > 25) {
             return false;
         } else {
-            game.player.score -= 5;
+            game.player.score -= 10;
             return true;
         }
     }
