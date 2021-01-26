@@ -28,7 +28,7 @@ class Game {
 
     preloadBurningForest() {
         this.bunrningForestBackgroundImage  =
-            { src: loadImage('assets/background-1.png'), x: 0, speed: 2 }
+            { src: loadImage('assets/background-1.png'), x: 0, speed: 4 }
         ;
 
         this.burningForestObstacle = loadImage('assets/fire.gif');
@@ -37,11 +37,11 @@ class Game {
 
     preloadCity(){
         this.cityBackgroundImage  =
-            { src: loadImage('assets/background-2.png'), x: 0, speed: 2 }
+            { src: loadImage('assets/background-2.png'), x: 0, speed: 6 }
         ;
 
         this.cityObstacle = loadImage('assets/virus.png');
-        this.cityCoin = loadImage('assets/mask.jpg');
+        this.cityCoin = loadImage('assets/mask.png');
     }
 
     draw() {
@@ -51,14 +51,15 @@ class Game {
             this.drawForest();
         }
         
-        if (frameCount > 1000 && frameCount < 2000){
+        if (frameCount > 1000 && frameCount < 4000){
             this.drawBurningForest();
         }
         
-        if (frameCount > 2000) {
+        if (frameCount > 4000) {
             this.drawCity();
         }
         this.player.draw();
+        this.drawCoins();
         this.drawObstacles();
     }
 
@@ -70,6 +71,7 @@ class Game {
         this.background.draw(this.bunrningForestBackgroundImage);
 
         if (frameCount % 400 === 0) {
+            this.coins.push(new Coin(this.burningForestCoin));
             this.obstacles.push(new Obstacle(this.burningForestObstacle));
         }
     }
@@ -78,8 +80,22 @@ class Game {
         this.background.draw(this.cityBackgroundImage);
 
         if (frameCount % 400 === 0) {
+            this.coins.push(new Coin(this.cityCoin));
             this.obstacles.push(new Obstacle(this.cityObstacle));
         }
+    }
+
+    drawCoins(){
+        this.coins.forEach(function (coin) {
+            coin.draw();
+        });
+        this.coins = this.coins.filter((coin) => {
+            if (coin.collision(this.player) || coin.x < 0) {
+                return false;
+            } else {
+                return true;
+            }
+        });
     }
 
     drawObstacles(){

@@ -1,8 +1,8 @@
 class Obstacle {
     constructor(image) {
         this.image = image;
-        this.x = width;
-        this.y = (Math.random() * height) / 2.5;
+        this.x = width / 2;
+        this.y = 550;
         this.width = 80;
         this.height = 80;
     }
@@ -15,7 +15,7 @@ class Obstacle {
         if (dist(obstacleX, obstacleY, playerX, playerY) > 25) {
             return false;
         } else {
-            game.player.score += 10;
+            game.player.score -= 5;
             return true;
         }
     }

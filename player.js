@@ -6,7 +6,7 @@ class Player {
         this.width = 160;
         this.height = 200;
         this.x = 50;
-        this.y = height - this.height;
+        this.y = this.height - height;
     }
     jump() {
         this.velocity = - 13;
