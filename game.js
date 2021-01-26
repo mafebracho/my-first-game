@@ -10,9 +10,9 @@ class Game {
     }
     preload() {
         this.backgroundImages = [
-            // { src: loadImage('assets/background-0.png'), x: 0, speed: 2 },
+            { src: loadImage('assets/background-0.png'), x: 0, speed: 2 },
             { src: loadImage('assets/background-1.png'), x: 0, speed: 3 },
-            // { src: loadImage('assets/background-2.png'), x: 0, speed: 4 }
+            { src: loadImage('assets/background-2.png'), x: 0, speed: 4 }
         ];
         this.playerImage = loadImage('assets/player.png');
             
