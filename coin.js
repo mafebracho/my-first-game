@@ -1,11 +1,12 @@
 class Coin {
     constructor(image) {
         this.image = image;
-        this.x = (Math.random() * width) / 1.2;
+        this.x = (Math.random() * width) / 2;
         this.y = (Math.random() * height) / 1.5;
         this.width = 80;
         this.height = 80;
     }
+
     collision(playerInfo) {
         //console.log('collision', playerInfo);
         let coinX = this.x + this.width / 2;

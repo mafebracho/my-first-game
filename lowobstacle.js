@@ -1,10 +1,10 @@
-class Obstacle {
+class LowObstacle {
     constructor(image) {
         this.image = image;
-        this.x = (Math.random() * width) / 2.1;
-        this.y = (Math.random() * height) / 1.3;
-        this.width = 90;
-        this.height = 90;
+        this.x = width / 1.5;
+        this.y = (Math.random() * (550 - 700) + 650);
+        this.width = 100;
+        this.height = 100;
     }
     collision(playerInfo) {
         console.log('collision', playerInfo);
@@ -24,6 +24,3 @@ class Obstacle {
         image(this.image, this.x, this.y, this.width, this.height);
     }
 }
-
-
-        

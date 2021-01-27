@@ -1,13 +1,13 @@
 class Game {
     constructor() {
-    }
 
+    }
     setup() {
         this.player = new Player();
         this.background = new Background();
+        this.scoreLabel = '';
         this.obstacles = [];
         this.coins = [];
-        this.scoreLabel = '';
     }
 
     preload() {
@@ -90,9 +90,9 @@ class Game {
         if (frameCount % 200 === 0) {
             this.coins.push(new Coin(this.burningForestCoin));
         }
-        if (frameCount % 150 === 0) {
-            this.obstacles.push(new Obstacle(this.burningForestObstacle));
-            this.obstacles.push(new Obstacle(this.burningForestObstacle2));
+        if (frameCount % 220 === 0) {
+            this.obstacles.push(new LowObstacle(this.burningForestObstacle));
+            this.obstacles.push(new LowObstacle(this.burningForestObstacle2));
         }
     }
 
@@ -102,7 +102,7 @@ class Game {
         if (frameCount % 400 === 0) {
             this.coins.push(new Coin(this.cityCoin));
         }
-        if (frameCount % 150 === 0) {
+        if (frameCount % 200 === 0) {
             this.obstacles.push(new Obstacle(this.cityObstacle));
         }
     }
@@ -115,9 +115,9 @@ class Game {
         }
         if (frameCount % 150 === 0) {
             this.obstacles.push(new Obstacle(this.cityObstacle));
+            this.obstacles.push(new LowObstacle(this.cityObstacle));
             this.obstacles.push(new Obstacle(this.cityObstacle));
-            this.obstacles.push(new Obstacle(this.cityObstacle));
-            this.obstacles.push(new Obstacle(this.cityObstacle));
+            this.obstacles.push(new LowObstacle(this.cityObstacle));
         }
     }
 
