@@ -16,6 +16,8 @@ class Game {
         this.preloadBurningForest();
         this.preloadCity();
         this.preloadSupermarket();
+        this.preloadBLM();
+        this.preloadHouse();
     }
 
     preloadPlayer(){
@@ -40,7 +42,7 @@ class Game {
 
     preloadCity(){
         this.cityBackgroundImage  =
-            { src: loadImage('./assets/background-2.png'), x: 0, speed: 6 }
+            { src: loadImage('./assets/background-2.png'), x: 0, speed: 8 }
         ;
 
         this.cityObstacle = loadImage('./assets/virus.png');
@@ -49,10 +51,22 @@ class Game {
 
     preloadSupermarket(){
         this.supermarketBackgroundImage  =
-            { src: loadImage('./assets/background-3.png'), x: 0, speed: 8 }
+            { src: loadImage('./assets/background-3.png'), x: 0, speed: 10 }
         ;
 
         this.supermarketCoin = loadImage('./assets/toilet paper.png');
+    }
+
+    preloadBLM(){
+        this.blmBackgroundImage  =
+            { src: loadImage('./assets/background-4.png'), x: 0, speed: 10 }
+        ;
+    }
+
+    preloadHouse(){
+        this.houseBackgroundImage  =
+            { src: loadImage('./assets/background-5.jpg'), x: 0, speed: 4 }
+        ;
     }
 
     draw() {
@@ -62,16 +76,24 @@ class Game {
             this.drawForest();
         }
         
-        if (frameCount > 1000 && frameCount < 4000){
+        if (frameCount > 1000 && frameCount < 3000){
             this.drawBurningForest();
         }
         
-        if (frameCount > 4000 && frameCount < 8000) {
+        if (frameCount > 3000 && frameCount < 6000) {
             this.drawCity();
         }
 
-        if (frameCount > 8000 && frameCount < 16000) {
+        if (frameCount > 6000 && frameCount < 9000) {
             this.drawSupermarket();
+        }
+
+        if (frameCount > 9000 && frameCount < 12000) {
+            this.drawBLM();
+        }
+
+        if (frameCount > 12000) {
+            this.drawHouse();
         }
 
         this.player.draw();
@@ -110,7 +132,7 @@ class Game {
     drawSupermarket(){
         this.background.draw(this.supermarketBackgroundImage);
 
-        if (frameCount % 500 === 0) {
+        if (frameCount % 420 === 0) {
             this.coins.push(new Coin(this.supermarketCoin));
         }
         if (frameCount % 150 === 0) {
@@ -119,6 +141,24 @@ class Game {
             this.obstacles.push(new Obstacle(this.cityObstacle));
             this.obstacles.push(new LowObstacle(this.cityObstacle));
         }
+    }
+
+    drawBLM(){
+        this.background.draw(this.blmBackgroundImage);
+
+        if (frameCount % 420 === 0) {
+            this.coins.push(new Coin(this.cityCoin));
+        }
+        if (frameCount % 150 === 0) {
+            this.obstacles.push(new Obstacle(this.cityObstacle));
+            this.obstacles.push(new LowObstacle(this.cityObstacle));
+            this.obstacles.push(new Obstacle(this.cityObstacle));
+            this.obstacles.push(new LowObstacle(this.cityObstacle));
+        }
+    }
+
+    drawHouse(){
+        this.background.draw(this.houseBackgroundImage);
     }
 
     drawCoins(){
@@ -148,6 +188,7 @@ class Game {
     }
 
     drawScore(){
+
         if (this.player.score > 0) {
             document.querySelector('.score > h1').innerText = this.scoreLabel + `Score: ${this.player.score}`;
         } else if (this.player.score < 0) {
