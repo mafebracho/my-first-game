@@ -15,34 +15,44 @@ class Game {
         this.preloadForest();
         this.preloadBurningForest();
         this.preloadCity();
+        this.preloadSupermarket();
     }
 
     preloadPlayer(){
-        this.playerImage = loadImage('assets/player.png');
+        this.playerImage = loadImage('./assets/player.png');
     }
 
     preloadForest() {
         this.forestBackgroundImage =
-            { src: loadImage('assets/background-0.png'), x: 0, speed: 2 }
+            { src: loadImage('./assets/background-0.png'), x: 0, speed: 2 }
         ;
     }
 
     preloadBurningForest() {
         this.bunrningForestBackgroundImage  =
-            { src: loadImage('assets/background-1.png'), x: 0, speed: 4 }
+            { src: loadImage('./assets/background-1.png'), x: 0, speed: 4 }
         ;
 
-        this.burningForestObstacle = loadImage('assets/fire.gif');
-        this.burningForestCoin = loadImage('assets/koala.png');
+        this.burningForestObstacle = loadImage('./assets/fire.gif');
+        this.burningForestObstacle2 = loadImage('./assets/log.png');
+        this.burningForestCoin = loadImage('./assets/koala.png');
     }
 
     preloadCity(){
         this.cityBackgroundImage  =
-            { src: loadImage('assets/background-2.png'), x: 0, speed: 6 }
+            { src: loadImage('./assets/background-2.png'), x: 0, speed: 6 }
         ;
 
-        this.cityObstacle = loadImage('assets/virus.png');
-        this.cityCoin = loadImage('assets/mask.png');
+        this.cityObstacle = loadImage('./assets/virus.png');
+        this.cityCoin = loadImage('./assets/mask.png');
+    }
+
+    preloadSupermarket(){
+        this.supermarketBackgroundImage  =
+            { src: loadImage('./assets/background-3.png'), x: 0, speed: 8 }
+        ;
+
+        this.supermarketCoin = loadImage('./assets/toilet paper.png');
     }
 
     draw() {
@@ -56,9 +66,14 @@ class Game {
             this.drawBurningForest();
         }
         
-        if (frameCount > 4000) {
+        if (frameCount > 4000 && frameCount < 8000) {
             this.drawCity();
         }
+
+        if (frameCount > 8000 && frameCount < 16000) {
+            this.drawSupermarket();
+        }
+
         this.player.draw();
         this.drawCoins();
         this.drawObstacles();
@@ -72,17 +87,36 @@ class Game {
     drawBurningForest(){
         this.background.draw(this.bunrningForestBackgroundImage);
 
-        if (frameCount % 300 === 0) {
+        if (frameCount % 200 === 0) {
             this.coins.push(new Coin(this.burningForestCoin));
+        }
+        if (frameCount % 150 === 0) {
             this.obstacles.push(new Obstacle(this.burningForestObstacle));
+            this.obstacles.push(new Obstacle(this.burningForestObstacle2));
         }
     }
 
     drawCity(){
         this.background.draw(this.cityBackgroundImage);
 
-        if (frameCount % 200 === 0) {
+        if (frameCount % 400 === 0) {
             this.coins.push(new Coin(this.cityCoin));
+        }
+        if (frameCount % 150 === 0) {
+            this.obstacles.push(new Obstacle(this.cityObstacle));
+        }
+    }
+
+    drawSupermarket(){
+        this.background.draw(this.supermarketBackgroundImage);
+
+        if (frameCount % 500 === 0) {
+            this.coins.push(new Coin(this.supermarketCoin));
+        }
+        if (frameCount % 150 === 0) {
+            this.obstacles.push(new Obstacle(this.cityObstacle));
+            this.obstacles.push(new Obstacle(this.cityObstacle));
+            this.obstacles.push(new Obstacle(this.cityObstacle));
             this.obstacles.push(new Obstacle(this.cityObstacle));
         }
     }
@@ -114,11 +148,10 @@ class Game {
     }
 
     drawScore(){
-        // document.querySelector('.score > h1').innerText = this.scoreLabel + this.player.score;
         if (this.player.score > 0) {
             document.querySelector('.score > h1').innerText = this.scoreLabel + `Score: ${this.player.score}`;
         } else if (this.player.score < 0) {
-            document.querySelector('.score > h1').innerText = '2020 KILLED VIM :(';
+            document.querySelector('.score > h1').innerText = `2020 KILLED VIM :( refresh page to try again`;
             clear();
         }
     }
