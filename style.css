@@ -19,6 +19,10 @@ h1 {
     font-size: 1.5em;
 }
 
+h2 {
+    font-size: 1.2em;
+}
+
 p {
     text-align: center;
     padding-left: 5%;
@@ -43,6 +47,13 @@ img {
 .score {
     position: absolute;
     top: 100px;
+    z-index: 42;
+    padding: 20px;
+}
+
+.headlines {
+    position: absolute;
+    top: 130px;
     z-index: 42;
     padding: 20px;
 }

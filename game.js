@@ -5,7 +5,6 @@ class Game {
     setup() {
         this.player = new Player();
         this.background = new Background();
-        this.scoreLabel = '';
         this.obstacles = [];
         this.coins = [];
     }
@@ -73,27 +72,27 @@ class Game {
         clear();
 
         if (frameCount < 1000){
-            this.drawForest();
+            this.drawForest(100, 300);
         }
         
         if (frameCount > 1000 && frameCount < 3000){
-            this.drawBurningForest();
+            this.drawBurningForest(1100, 1300);
         }
         
         if (frameCount > 3000 && frameCount < 6000) {
-            this.drawCity();
+            this.drawCity(3100, 3300);
         }
 
         if (frameCount > 6000 && frameCount < 9000) {
-            this.drawSupermarket();
+            this.drawSupermarket(6100, 6300);
         }
 
         if (frameCount > 9000 && frameCount < 12000) {
-            this.drawBLM();
+            this.drawBLM(9100, 9300);
         }
 
         if (frameCount > 12000) {
-            this.drawHouse();
+            this.drawHouse(12100, 12300);
         }
 
         this.player.draw();
@@ -102,12 +101,28 @@ class Game {
         this.drawScore();
     }
 
-    drawForest(){
+    drawForest(textSartFrame, textEndFrame){
         this.background.draw(this.forestBackgroundImage);
+
+        if (frameCount == textSartFrame){
+            this.drawHeadline('January 2020');
+        }
+
+        if (frameCount == textEndFrame){
+            this.drawHeadline('');
+        }
     }
 
-    drawBurningForest(){
+    drawBurningForest(textSartFrame, textEndFrame){
         this.background.draw(this.bunrningForestBackgroundImage);
+
+        if (frameCount == textSartFrame){
+            this.drawHeadline('🔥 Australia 🔥 - Save the Koalas 🐨');
+        }
+
+        if (frameCount == textEndFrame){
+            this.drawHeadline('');
+        }
 
         if (frameCount % 200 === 0) {
             this.coins.push(new Coin(this.burningForestCoin));
@@ -118,8 +133,16 @@ class Game {
         }
     }
 
-    drawCity(){
+    drawCity(textSartFrame, textEndFrame){
         this.background.draw(this.cityBackgroundImage);
+
+        if (frameCount == textSartFrame){
+            this.drawHeadline('🦠 Covid-19 arrived 🦠 - Wear masks 😷');
+        }
+
+        if (frameCount == textEndFrame){
+            this.drawHeadline('');
+        }
 
         if (frameCount % 400 === 0) {
             this.coins.push(new Coin(this.cityCoin));
@@ -129,8 +152,16 @@ class Game {
         }
     }
 
-    drawSupermarket(){
+    drawSupermarket(textSartFrame, textEndFrame){
         this.background.draw(this.supermarketBackgroundImage);
+
+        if (frameCount == textSartFrame){
+            this.drawHeadline('Apparently toilet paper is scarce 🧻');
+        }
+
+        if (frameCount == textEndFrame){
+            this.drawHeadline('');
+        }
 
         if (frameCount % 420 === 0) {
             this.coins.push(new Coin(this.supermarketCoin));
@@ -143,8 +174,16 @@ class Game {
         }
     }
 
-    drawBLM(){
+    drawBLM(textSartFrame, textEndFrame){
         this.background.draw(this.blmBackgroundImage);
+
+        if (frameCount == textSartFrame){
+            this.drawHeadline('Protests are everywhere, like the virus 🦠');
+        }
+
+        if (frameCount == textEndFrame){
+            this.drawHeadline('');
+        }
 
         if (frameCount % 420 === 0) {
             this.coins.push(new Coin(this.cityCoin));
@@ -157,8 +196,16 @@ class Game {
         }
     }
 
-    drawHouse(){
+    drawHouse(textSartFrame, textEndFrame){
         this.background.draw(this.houseBackgroundImage);
+
+        if (frameCount == textSartFrame){
+            this.drawHeadline('🔓 Lockdown 🔓');
+        }
+
+        if (frameCount == textEndFrame){
+            this.drawHeadline('');
+        }
     }
 
     drawCoins(){
@@ -188,13 +235,16 @@ class Game {
     }
 
     drawScore(){
-
         if (this.player.score > 0) {
-            document.querySelector('.score > h1').innerText = this.scoreLabel + `Score: ${this.player.score}`;
+            document.querySelector('.score > h1').innerText = `Score: ${this.player.score}`;
         } else if (this.player.score < 0) {
             document.querySelector('.score > h1').innerText = `2020 KILLED VIM :( refresh page to try again`;
             clear();
         }
+    }
+
+    drawHeadline(text){
+        document.querySelector('.headlines > h2').innerText = text;
     }
 
 }

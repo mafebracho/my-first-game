@@ -1,4 +1,5 @@
 const game = new Game();
+
 window.onload = function() {
 };
 
@@ -12,6 +13,7 @@ function setup() {
 function draw() {
     game.draw();
 }
+
 function keyPressed () {
     if (keyCode === 32) {
         game.player.jump();
