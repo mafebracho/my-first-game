@@ -1,13 +1,27 @@
 class LowObstacle {
     constructor(image) {
         this.image = image;
-        this.x = width / 1.5;
-        this.y = (Math.random() * (550 - 700) + 650);
+        this.x = this.calculateX();
+        this.y = this.calculateY();
+
         this.width = 100;
         this.height = 100;
     }
+
+    calculateY(){
+        let minPaddingTop = 500;
+        let fullRange = 100;
+
+        let ran = Math.random();
+        let randomRange = ran * fullRange;
+        return minPaddingTop + randomRange;
+    }
+
+    calculateX(){
+        return width;
+    }
+
     collision(playerInfo) {
-        console.log('collision', playerInfo);
         let obstacleX = this.x + this.width / 2;
         let obstacleY = this.y + this.height / 2;
         let playerX = playerInfo.x + playerInfo.width / 2;

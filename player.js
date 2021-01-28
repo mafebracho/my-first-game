@@ -9,14 +9,22 @@ class Player {
         this.y = this.height - height;
     }
     jump() {
+        if (this.y < 0){
+            return;
+        }
         this.velocity = - 13;
     }
     draw() {
         this.velocity += this.gravity;
         this.y += this.velocity;
+        console.log(this.y);
+        //
         if (this.y >= height - this.height) {
             this.y = height - this.height;
+            console.log(this.y);
         }
+
+        //set image
         image(game.playerImage, this.x, this.y, this.width, this.height);
     }
 }

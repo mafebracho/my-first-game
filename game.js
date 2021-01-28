@@ -130,8 +130,11 @@ class Game {
             this.coins.push(new Coin(this.burningForestCoin));
         }
         if (frameCount % 220 === 0) {
-            this.obstacles.push(new LowObstacle(this.burningForestObstacle));
-            this.obstacles.push(new LowObstacle(this.burningForestObstacle2));
+            if (Math.random() > 0.5){
+                this.obstacles.push(new LowObstacle(this.burningForestObstacle));
+             }else {
+                this.obstacles.push(new LowObstacle(this.burningForestObstacle2));
+             }
         }
     }
 
@@ -241,7 +244,18 @@ class Game {
         if (this.player.score > 0) {
             score.innerText = `Score: ${this.player.score}`;
         } else if (this.player.score < 0) {
+            this.endGame();
+        }
+    }
+
+    endGame(){
+        if(this.start == true){
             score.innerText = `2020 KILLED VIM :( refresh page to try again`;
+            document.getElementById('gameOver').play();
+            let audio = document.querySelector('#backgroundMusic');
+            audio.pause();
+            audio.currentTime = 0;
+            this.start = false;
             clear();
         }
     }

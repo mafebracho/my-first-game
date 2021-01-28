@@ -8,7 +8,6 @@ class Coin {
     }
 
     collision(playerInfo) {
-        //console.log('collision', playerInfo);
         let coinX = this.x + this.width / 2;
         let coinY = this.y + this.height / 2;
         let playerX = playerInfo.x + playerInfo.width / 2;
@@ -17,6 +16,8 @@ class Coin {
             return false;
         } else {
             game.player.score += 5;
+
+            document.getElementById('coinSound').play();
             return true;
         }
     }

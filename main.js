@@ -6,6 +6,7 @@ function preload() {
 function setup() {
     createCanvas(700, 700);
     game.setup();
+    this.showSplash();
 }
 function draw() {
     if(game.start){
@@ -21,8 +22,12 @@ function keyPressed () {
 
     //return button
     if (keyCode === 13){
-        this.startGame()
+        this.startGame();
     }
+}
+
+function showSplash(){
+    document.getElementById('splash').hidden = false;
 }
 
 function startGame(){
@@ -31,10 +36,10 @@ function startGame(){
     document.getElementById('score').hidden = false;
     document.getElementById('headlines').hidden = false;
 
-    // document.getElementById('backgroundMusic').play();
+    document.getElementById('backgroundMusic').play();
 }
 
 function playerJump(){
     game.player.jump();
-    // document.getElementById('jumpingSound').play();
+    document.getElementById('jumpingSound').play();
 }
