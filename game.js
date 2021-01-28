@@ -18,6 +18,7 @@ class Game {
         this.preloadSupermarket();
         this.preloadBLM();
         this.preloadHouse();
+        this.preloadWin();
     }
 
     preloadPlayer(){
@@ -68,6 +69,11 @@ class Game {
             { src: loadImage('./assets/background-5.png'), x: 0, speed: 0 }
         ;
     }
+    preloadWin(){
+        this.winImage = 
+        { src: loadImage('./assets/win.gif'), x: 0, speed: 0 }
+        ;
+    }
 
     draw() {
         clear();
@@ -77,27 +83,31 @@ class Game {
         }
         
         if (frameCount > 300 && frameCount < 2000) {
-            this.drawBurningForest(300, 500);
+            this.drawBurningForest(350, 500);
         }
         
         if (frameCount > 2000 && frameCount < 5000) {
-            this.drawCity(2300, 2500);
+            this.drawCity(2350, 2500);
         }
 
         if (frameCount > 5000 && frameCount < 8000) {
-            this.drawSupermarket(5300, 5500);
+            this.drawSupermarket(5350, 5500);
         }
 
         if (frameCount > 8000 && frameCount < 11000) {
-            this.drawBLM(8300, 8500);
+            this.drawBLM(8350, 8500);
         }
 
         if (frameCount > 11000 && frameCount < 11600) {
             this.drawHouse(11200, 11500);
         }
 
-        if (frameCount > 11600 && frameCount < 12000) {
-            this.drawHouse(11200, 11500);
+        if (frameCount > 11600 && frameCount < 11900) {
+            this.drawWin(11600, 11900);
+        }
+
+        if (frameCount > 11900) {
+            location.reload();
         }
 
         this.player.draw();
@@ -164,7 +174,7 @@ class Game {
         this.background.draw(this.supermarketBackgroundImage);
 
         if (frameCount == textSartFrame){
-            this.drawHeadline('Toilet paper - total panic! 🧻');
+            this.drawHeadline('Toilet paper - TOTAL PANIC! 🧻');
         }
 
         if (frameCount == textEndFrame){
@@ -188,7 +198,7 @@ class Game {
         this.background.draw(this.blmBackgroundImage);
 
         if (frameCount == textSartFrame){
-            this.drawHeadline('Protests are everywhere, like the virus 🦠');
+            this.drawHeadline('Protests everywhere, like the virus 🦠');
         }
 
         if (frameCount == textEndFrame){
@@ -213,6 +223,17 @@ class Game {
 
         if (frameCount == textSartFrame){
             this.drawHeadline('🔓 Lockdown 🔓');
+        }
+        if (frameCount == textEndFrame){
+            this.drawHeadline('');
+        }
+    }
+
+    drawWin(textSartFrame, textEndFrame){
+        this.background.draw(this.winImage);
+
+        if (frameCount == textSartFrame){
+            this.drawHeadline('YOU HELPED VIM SURVIVE 2020!!!');
         }
         if (frameCount == textEndFrame){
             this.drawHeadline('');
