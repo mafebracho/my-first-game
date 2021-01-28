@@ -1,4 +1,4 @@
-html, body {
+body {
     background-color: #0f1c37;
     background-size: cover;
     background-repeat: no-repeat;
@@ -44,16 +44,68 @@ img {
     position: absolute;
 }
 
-.score {
+#score {
     position: absolute;
     top: 100px;
     z-index: 42;
     padding: 20px;
 }
 
-.headlines {
+#splash {
+    position: absolute;
+    top: 300px;
+    z-index: 42;
+    padding: 20px;
+}
+
+#headlines {
     position: absolute;
     top: 170px;
     z-index: 42;
     padding: 20px;
 }
+
+
+/* 
+
+
+
+
+
+#container {
+    display: inline-block;
+    position: relative;
+  }            
+  #startBtn {
+    border: none;
+    background: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  } */
+
+
+
+
+
+  #StartButton{
+    cursor:pointer;
+    /* background-image:url('./assets/logo.png'); */
+    border: none;
+    background: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+
+

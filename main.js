@@ -1,8 +1,5 @@
 const game = new Game();
 
-window.onload = function() {
-};
-
 function preload() {
     game.preload();
 }
@@ -11,12 +8,33 @@ function setup() {
     game.setup();
 }
 function draw() {
-    game.draw();
+    if(game.start){
+        game.draw();
+    }   
 }
 
 function keyPressed () {
+    //spacebar
     if (keyCode === 32) {
-        game.player.jump();
-        document.getElementById('jumpingSound').play();
+        this.playerJump();
     }
+
+    //return button
+    if (keyCode === 13){
+        this.startGame()
+    }
+}
+
+function startGame(){
+    game.start = true;
+    document.getElementById('splash').hidden = true;
+    document.getElementById('score').hidden = false;
+    document.getElementById('headlines').hidden = false;
+
+    // document.getElementById('backgroundMusic').play();
+}
+
+function playerJump(){
+    game.player.jump();
+    // document.getElementById('jumpingSound').play();
 }

@@ -7,6 +7,7 @@ class Game {
         this.background = new Background();
         this.obstacles = [];
         this.coins = [];
+        this.start = false;
     }
 
     preload() {
@@ -71,28 +72,29 @@ class Game {
     draw() {
         clear();
 
-        if (frameCount < 1000){
-            this.drawForest(100, 300);
+        if (frameCount < 300) {
+            this.drawForest(100, 200);
         }
         
-        if (frameCount > 1000 && frameCount < 3000){
-            this.drawBurningForest(1100, 1300);
+        if (frameCount > 300 && frameCount < 2000){
+            this.drawBurningForest(350, 700);
         }
         
-        if (frameCount > 3000 && frameCount < 6000) {
-            this.drawCity(3100, 3300);
+        if (frameCount > 2000 && frameCount < 5000) {
+            this.drawCity(2350, 2700);
         }
 
-        if (frameCount > 6000 && frameCount < 9000) {
-            this.drawSupermarket(6100, 6300);
+        if (frameCount > 5000 && frameCount < 8000) {
+            this.drawSupermarket(5350, 5700);
         }
 
-        if (frameCount > 9000 && frameCount < 12000) {
-            this.drawBLM(9100, 9300);
+        if (frameCount > 8000 && frameCount < 11000) {
+            this.drawBLM(8350, 8700);
         }
 
-        if (frameCount > 12000) {
-            this.drawHouse(12100, 12300);
+        if (frameCount > 11000 && frameCount < 12500) {
+            this.drawHouse(11350, 11700);
+            document.location.reload();
         }
 
         this.player.draw();
@@ -235,16 +237,17 @@ class Game {
     }
 
     drawScore(){
+        let score = document.querySelector('#score > h4');
         if (this.player.score > 0) {
-            document.querySelector('.score > h4').innerText = `Score: ${this.player.score}`;
+            score.innerText = `Score: ${this.player.score}`;
         } else if (this.player.score < 0) {
-            document.querySelector('.score > h4').innerText = `2020 KILLED VIM :( refresh page to try again`;
+            score.innerText = `2020 KILLED VIM :( refresh page to try again`;
             clear();
         }
     }
 
     drawHeadline(text){
-        document.querySelector('.headlines > h1').innerText = text;
+        document.querySelector('#headlines > h1').innerText = text;
     }
 
 }

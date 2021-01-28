@@ -18,12 +18,16 @@
         </p>
     </div>
 
-    <div class="score">
+    <div id="score" hidden='true'>
         <h4>Score: 0</h4>
     </div>
 
-    <div class="headlines">
+    <div id="headlines" hidden='true'>
         <h1></h1>
+    </div>
+
+    <div id="splash">
+        <p>Press Enter to start the Game</p>
     </div>
 
     <!-- REMEMBER TO ADD FAVICON -->
@@ -36,7 +40,7 @@
     <script src="./game.js"></script>
     <script src="./main.js"></script>
 
-    <audio autoplay id='backgroundMusic' src='./assets/background-music.mp3' loop='loop'></audio>
+    <audio id='backgroundMusic' src='./assets/background-music.mp3' loop='loop'></audio>
     <audio id='jumpingSound' src='./assets/jump.mp3'></audio>
 
 </body>
