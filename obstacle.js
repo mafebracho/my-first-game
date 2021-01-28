@@ -16,6 +16,7 @@ class Obstacle {
             return false;
         } else {
             game.player.score -= 10;
+            document.getElementById('obstacleSound').play();
             return true;
         }
     }

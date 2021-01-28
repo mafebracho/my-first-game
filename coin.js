@@ -16,7 +16,6 @@ class Coin {
             return false;
         } else {
             game.player.score += 5;
-
             document.getElementById('coinSound').play();
             return true;
         }

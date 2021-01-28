@@ -65,7 +65,7 @@ class Game {
 
     preloadHouse(){
         this.houseBackgroundImage  =
-            { src: loadImage('./assets/background-5.png'), x: 0, speed: 4 }
+            { src: loadImage('./assets/background-5.png'), x: 0, speed: 0 }
         ;
     }
 
@@ -76,25 +76,28 @@ class Game {
             this.drawForest(100, 200);
         }
         
-        if (frameCount > 300 && frameCount < 2000){
-            this.drawBurningForest(350, 700);
+        if (frameCount > 300 && frameCount < 2000) {
+            this.drawBurningForest(300, 500);
         }
         
         if (frameCount > 2000 && frameCount < 5000) {
-            this.drawCity(2350, 2700);
+            this.drawCity(2300, 2500);
         }
 
         if (frameCount > 5000 && frameCount < 8000) {
-            this.drawSupermarket(5350, 5700);
+            this.drawSupermarket(5300, 5500);
         }
 
         if (frameCount > 8000 && frameCount < 11000) {
-            this.drawBLM(8350, 8700);
+            this.drawBLM(8300, 8500);
         }
 
-        if (frameCount > 11000 && frameCount < 12500) {
-            this.drawHouse(11350, 11700);
-            document.location.reload();
+        if (frameCount > 11000 && frameCount < 11600) {
+            this.drawHouse(11200, 11500);
+        }
+
+        if (frameCount > 11600 && frameCount < 12000) {
+            this.drawHouse(11200, 11500);
         }
 
         this.player.draw();
@@ -142,7 +145,7 @@ class Game {
         this.background.draw(this.cityBackgroundImage);
 
         if (frameCount == textSartFrame){
-            this.drawHeadline('🦠 Covid-19 arrived 🦠 - Wear masks 😷');
+            this.drawHeadline('🦠 Covid-19 arrived 🦠 - You need masks 😷');
         }
 
         if (frameCount == textEndFrame){
@@ -161,21 +164,23 @@ class Game {
         this.background.draw(this.supermarketBackgroundImage);
 
         if (frameCount == textSartFrame){
-            this.drawHeadline('Apparently toilet paper is scarce 🧻');
+            this.drawHeadline('Toilet paper - total panic! 🧻');
         }
 
         if (frameCount == textEndFrame){
             this.drawHeadline('');
         }
 
-        if (frameCount % 420 === 0) {
+        if (frameCount % 400 === 0) {
             this.coins.push(new Coin(this.supermarketCoin));
         }
         if (frameCount % 150 === 0) {
-            this.obstacles.push(new Obstacle(this.cityObstacle));
-            this.obstacles.push(new LowObstacle(this.cityObstacle));
-            this.obstacles.push(new Obstacle(this.cityObstacle));
-            this.obstacles.push(new LowObstacle(this.cityObstacle));
+            if (Math.random() > 0.5){
+                this.obstacles.push(new LowObstacle(this.cityObstacle));
+                this.obstacles.push(new Obstacle(this.cityObstacle));
+             }else {
+                this.obstacles.push(new Obstacle(this.cityObstacle));
+             }
         }
     }
 
@@ -194,10 +199,12 @@ class Game {
             this.coins.push(new Coin(this.cityCoin));
         }
         if (frameCount % 150 === 0) {
-            this.obstacles.push(new Obstacle(this.cityObstacle));
-            this.obstacles.push(new LowObstacle(this.cityObstacle));
-            this.obstacles.push(new Obstacle(this.cityObstacle));
-            this.obstacles.push(new LowObstacle(this.cityObstacle));
+            if (Math.random() > 0.5){
+                this.obstacles.push(new Obstacle(this.cityObstacle));
+                this.obstacles.push(new Obstacle(this.cityObstacle));
+             }else {
+                this.obstacles.push(new LowObstacle(this.cityObstacle));
+             }
         }
     }
 
@@ -207,7 +214,6 @@ class Game {
         if (frameCount == textSartFrame){
             this.drawHeadline('🔓 Lockdown 🔓');
         }
-
         if (frameCount == textEndFrame){
             this.drawHeadline('');
         }
