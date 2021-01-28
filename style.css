@@ -16,11 +16,11 @@ html, body {
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 
-h2 {
-    font-size: 1.2em;
+h4 {
+    font-size: 1.3em;
 }
 
 p {
@@ -53,7 +53,7 @@ img {
 
 .headlines {
     position: absolute;
-    top: 130px;
+    top: 170px;
     z-index: 42;
     padding: 20px;
 }

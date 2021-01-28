@@ -236,15 +236,15 @@ class Game {
 
     drawScore(){
         if (this.player.score > 0) {
-            document.querySelector('.score > h1').innerText = `Score: ${this.player.score}`;
+            document.querySelector('.score > h4').innerText = `Score: ${this.player.score}`;
         } else if (this.player.score < 0) {
-            document.querySelector('.score > h1').innerText = `2020 KILLED VIM :( refresh page to try again`;
+            document.querySelector('.score > h4').innerText = `2020 KILLED VIM :( refresh page to try again`;
             clear();
         }
     }
 
     drawHeadline(text){
-        document.querySelector('.headlines > h2').innerText = text;
+        document.querySelector('.headlines > h1').innerText = text;
     }
 
 }
