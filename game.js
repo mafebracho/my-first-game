@@ -65,7 +65,7 @@ class Game {
 
     preloadHouse(){
         this.houseBackgroundImage  =
-            { src: loadImage('./assets/background-5.jpg'), x: 0, speed: 4 }
+            { src: loadImage('./assets/background-5.png'), x: 0, speed: 4 }
         ;
     }
 
