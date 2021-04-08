@@ -20,13 +20,13 @@ I chose to build this game because I was inspired by [this game](https://2020gam
 
 
 
-<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886557/samples/australia_csvajr.png" style="width:45vh" alt="australia" />
-<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886557/samples/covid_bdedhl.png" style="width:45vh" alt="covid" />
+<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886557/samples/australia_csvajr.png" style="width:100px" alt="australia" />
+<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886557/samples/covid_bdedhl.png" style="width:100px" alt="covid" />
 
 
-<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886563/samples/tpmadness_pr7zfa.png" style="width:45vh" alt="tp" />
-<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886568/samples/protests_v4rwwt.png" style="width:45vh" alt="blm" />
+<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886563/samples/tpmadness_pr7zfa.png" style="width:100px" alt="tp" />
+<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886568/samples/protests_v4rwwt.png" style="width:100px" alt="blm" />
 
 
-<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886558/samples/lockdown_snscl7.png" style="width:45vh" alt="lockdown" />
-<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886546/samples/win_ikdrcc.png" style="width:45vh" alt="win" />
+<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886558/samples/lockdown_snscl7.png" style="width:100px" alt="lockdown" />
+<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886546/samples/win_ikdrcc.png" style="width:100px" alt="win" />
