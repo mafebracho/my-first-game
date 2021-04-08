@@ -32,10 +32,4 @@ There are still things I would like to add or modify but it’s a fully function
 
 
 
-I chose to build this game because I was inspired by [this one](https://2020game.io) around the same topic. Of course my game can't compare because I developed it on my own in only 4 days, but I need to give credit a many thanks to who inspired me.
-
-
-
-<img src="https://res.cloudinary.com/mafebracho/image/upload/v1617886557/samples/australia_csvajr.png" style="width:50px" alt="australia" />
-
-
+I chose to build this game because I was inspired by [this one](https://2020game.io) around the same topic. Of course my game can't compare because I developed it on my own in only 4 days, but I need to give credit a many thanks to who inspired me, whoever you are ♥️
